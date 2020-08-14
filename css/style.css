@@ -457,13 +457,23 @@ a {
 /* =============================================================
  ================МОДАЛЬНОЕ ОКНО=========================== 
 ==============================================================*/
-.modal-open {
+
+.backdrop {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+
+  background: rgba(0, 0, 0, 0.2);
+}
+.modal-open-content {
   position: absolute;
   width: 528px;
   height: 581px;
-  left: 536px;
-  top: 221px;
-
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   background: #ffffff;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
@@ -472,10 +482,12 @@ a {
 .is-hidden {
   opacity: 1;
   visibility: hidden;
-  pointer-events: visible;
+  pointer-events: none;
 }
 .button-close-modal {
   display: flex;
+  justify-content: center;
+  align-items: center;
   margin-left: auto;
   margin-right: 8px;
   margin-top: 8px;
@@ -484,7 +496,11 @@ a {
   border-radius: 50%;
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
-/* Футер */
+.button-close-modal .icon-close {
+  width: 11px;
+  height: 11px;
+}
+/* ===============   Футер   ================== */
 
 .footer-page {
   padding-top: 60px;

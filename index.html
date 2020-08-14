@@ -400,13 +400,6 @@
           </ul>
         </div>
       </section>
-
-      <!-- ===== МОДАЛЬНОЕ ОКНО ===== -->
-      <div class="modal-open">
-        <div class="modal-open-content">
-          <button class="button-close-modal"></button>
-        </div>
-      </div>
     </main>
     <footer class="footer-page">
       <div class="container">
@@ -459,6 +452,16 @@
       </div>
     </footer>
 
+    <!-- ===== МОДАЛЬНОЕ ОКНО ===== -->
+    <div class="is-hidden backdrop" data-modal>
+      <div class="modal-open-content" data-modal-close>
+        <button class="button-close-modal">
+          <svg class="icon-close">
+            <use href="./images/sprint.svg#icon-icon-close"></use>
+          </svg>
+        </button>
+      </div>
+    </div>
     <script src="./modal.js"></script>
   </body>
 </html>

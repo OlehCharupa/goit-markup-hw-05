@@ -70,6 +70,9 @@ a {
   display: flex;
   align-items: center;
 }
+.page-header {
+  border-bottom: 1px solid #ececec;
+}
 
 /*================= логотип ==================*/
 
@@ -82,6 +85,7 @@ a {
   line-height: 1.2;
 
   text-decoration: none;
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .logo:hover,
 .logo:focus {
@@ -103,7 +107,6 @@ a {
 
 .site-nav .link {
   display: block;
-  height: 80px;
   padding-top: 32px;
   padding-bottom: 32px;
 
@@ -130,10 +133,21 @@ a {
   border-radius: 2px;
   position: absolute;
   right: 0;
-  bottom: 0;
+  bottom: -1px;
   opacity: 0;
   transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+/* .site-nav .item .link::active {
+  position: absolute;
+  display: block;
+  content: "";
+  width: -webkit-fill-available;
+  height: 4px;
+  right: 0;
+  bottom: -1px;
+  border-radius: 2px;
+  background-color: var(--accent-color);
+} */
 
 .site-nav .link:hover,
 .site-nav .link:focus {
@@ -159,7 +173,7 @@ a {
   letter-spacing: 0.02em;
 
   text-decoration: none;
-  transition-duration: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .contact-nav .link:hover,
@@ -186,10 +200,8 @@ a {
 /*================= Герой =====================*/
 
 .hero {
-  display: flex;
+  width: 672px;
   letter-spacing: 0.06em;
-  flex-direction: column;
-  align-items: center;
   text-align: center;
   color: var(--title-text-white);
 }
@@ -197,7 +209,6 @@ a {
   max-width: 100%;
   margin-top: 0;
   margin-bottom: 30px;
-  /* color: var(--title-text-white); */
   font-weight: 900;
   font-size: 44px;
   line-height: 1.36;
@@ -216,8 +227,9 @@ a {
   letter-spacing: 0.06em;
 }
 .overlay {
+  display: flex;
+  justify-content: center;
   max-width: 1600px;
-  height: 600px;
   margin-left: auto;
   margin-right: auto;
   background-repeat: no-repeat;
@@ -231,10 +243,8 @@ a {
     url(../images/header.jpg);
   padding-top: 200px;
   padding-bottom: 200px;
-  background-color: rgba(47, 48, 58, 0.8);
+  background-color: #c4c4c4;
 }
-/* ========== МОДАЛЬНОЕ ОКНО ====================== */
-
 /* ================= СКРЫТЬ ЗАГОЛОВОК СЕКЦИИ ПРЕИМУЩЕСТВА ==================*/
 .invisible {
   display: none;
@@ -431,30 +441,6 @@ a {
 .link-customer:focus .icon-customer {
   fill: var(--accent-color);
 }
-.icon-yaco {
-  width: 45px;
-  height: 50px;
-}
-.icon-company-taglinehere {
-  width: 40px;
-  height: 52px;
-}
-.icon-company {
-  width: 41px;
-  height: 43px;
-}
-.icon-fosterpeters {
-  width: 80px;
-  height: 42px;
-}
-.icon-brand {
-  width: 59px;
-  height: 47px;
-}
-.icon-company-tagline {
-  width: 88px;
-  height: 45px;
-}
 /* =============================================================
  ================МОДАЛЬНОЕ ОКНО=========================== 
 ==============================================================*/
@@ -463,25 +449,33 @@ a {
   position: fixed;
   left: 0px;
   top: 0px;
-  right: 0px;
-  bottom: 0px;
-
+  /* right: 0px;
+  bottom: 0px; */
+  width: 100%;
+  height: 100%;
+  opacity: 1;
   background: rgba(0, 0, 0, 0.2);
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 .modal-open-content {
   position: absolute;
   width: 528px;
   height: 581px;
   left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  top: 80px;
+  transform: translateX(-50%);
   background: #ffffff;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.is-hidden .modal-open-content {
+  transform: translateX(-300%);
 }
 .is-hidden {
-  opacity: 1;
+  opacity: 0;
   visibility: hidden;
   pointer-events: none;
 }
@@ -489,18 +483,20 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: auto;
-  margin-right: 8px;
-  margin-top: 8px;
+  position: absolute;
+  top: 8px;
+  right: 8px;
   width: 30px;
   height: 30px;
   border-radius: 50%;
   border: 1px solid rgba(0, 0, 0, 0.1);
+  background: #ffffff;
 }
 .button-close-modal .icon-close {
   width: 11px;
   height: 11px;
 }
+
 /* ===============   Футер   ================== */
 
 .footer-page {
@@ -533,6 +529,7 @@ a {
   font-size: 26px;
   line-height: 1.19;
   text-decoration: none;
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .home-page .text {
   color: var(--accent-color);
@@ -545,6 +542,7 @@ a {
   margin-top: 9px;
   color: rgba(255, 255, 255, 0.6);
   text-decoration: none;
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .address .link:hover,
 .address .link:focus {
@@ -606,7 +604,7 @@ a {
 .filter-menu .button {
   padding: 6px 22px;
   color: var(--title-text-color);
-  background: #f5f4fa;
+  background-color: #f5f4fa;
   font-family: inherit;
   font-weight: 500;
   font-size: 16px;
@@ -614,12 +612,15 @@ a {
   letter-spacing: inherit;
   border-style: hidden;
   border-radius: 4px;
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .filter-menu .item + .item {
   margin-left: 8px;
 }
 .filter-menu .button:hover,
 .filter-menu .button:focus {
+  box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
+    0px 2px 2px rgba(0, 0, 0, 0.12);
   color: var(--title-text-white);
   background-color: var(--accent-color);
 }
@@ -684,9 +685,8 @@ a {
   width: 100%;
   height: 100%;
 
-  /* opacity: 1; */
   transform: translateY(100%);
-  transition: transform 250ms ease;
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   margin: 0;
   padding-top: 63px;
@@ -700,12 +700,14 @@ a {
   line-height: 1.56;
 }
 .card:hover .card-image .text {
-  /* opacity: 1; */
   transform: translateY(0);
 }
 .card:hover .card-image::before {
-  /* opacity: 1; */
   transform: translateY(0);
+}
+.item:hover .card {
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+    1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 .card-image::before {
   content: "";
